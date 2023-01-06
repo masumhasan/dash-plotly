@@ -1,0 +1,28 @@
+
+You can use the Dash library from Plotly to create interactive visualizations with Python. Dash is a web application framework that provides a simple way to create interactive plots and dashboards using Plotly and Python.
+
+Here is an example of how to create a simple line plot with Dash
+
+
+
+Code 1
+
+
+
+
+
+This will create a simple scatter plot with the gdpPercap on the x-axis, lifeExp on the y-axis, and the size of the points representing the population of each country. The plot is interactive, and you can hover over the points to see the name of the country.
+
+I hope this helps! Let me know if you have any questions.
+
+_---------------
+
+
+To create a line plot with min, max, and average values in Dash, you can use the plotly.express.line function. Here is an example of how to do this:
+
+min Max code
+
+
+This will create a line plot with the close price of Apple stock over time, and three additional lines showing the min, max, and mean values. The plot is interactive, and you can hover over the lines to see the values at each point.
+
+I hope this helps! Let me know if you have any questions.
