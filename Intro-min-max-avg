@@ -1,0 +1,30 @@
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import plotly.express as px
+import pandas as pd
+
+# Load data
+df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv')
+
+# Calculate the min, max, and mean values
+df_min = df.groupby('Date').min()
+df_max = df.groupby('Date').max()
+df_mean = df.groupby('Date').mean()
+
+# Create the Dash app
+app = dash.Dash()
+
+# Create a line plot with min, max, and mean values
+fig = px.line(df, x='Date', y='AAPL.Close', title='AAPL Close Price')
+fig.add_scatter(x=df_min.index, y=df_min['AAPL.Close'], name='Min', mode='lines')
+fig.add_scatter(x=df_max.index, y=df_max['AAPL.Close'], name='Max', mode='lines')
+fig.add_scatter(x=df_mean.index, y=df_mean['AAPL.Close'], name='Mean', mode='lines')
+
+# Add the plot to the Dash app
+app.layout = html.Div([
+    dcc.Graph(figure=fig)
+])
+
+# Run the Dash app
+app.run_server()
